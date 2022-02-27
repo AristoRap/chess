@@ -34,12 +34,12 @@ User.create!(
 # Creating pieces
 puts "Creating pawns"
 
-CHARS.each do |c|
+7.times do |i|
   # White
   Piece.create!(
     {
       name: 'Pawn',
-      start_position: "#{c}2",
+      start_position: i + 8,
       captured: false,
       white: true
     }
@@ -48,7 +48,7 @@ CHARS.each do |c|
   Piece.create!(
     {
       name: 'Pawn',
-      start_position: "#{c}7",
+      start_position: i + 48,
       captured: false,
       white: false
     }
@@ -61,7 +61,7 @@ puts "Creating kings"
 Piece.create!(
   {
     name: 'King',
-    start_position: "D1",
+    start_position: 4,
     captured: false,
     white: true
   }
@@ -71,7 +71,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'King',
-    start_position: "D8",
+    start_position: 60,
     captured: false,
     white: false
   }
@@ -82,7 +82,7 @@ puts "Creating queens"
 Piece.create!(
   {
     name: 'Queen',
-    start_position: "E1",
+    start_position: 3,
     captured: false,
     white: true
   }
@@ -92,7 +92,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Queen',
-    start_position: "E8",
+    start_position: 59,
     captured: false,
     white: false
   }
@@ -104,7 +104,7 @@ puts "Creating rooks"
 Piece.create!(
   {
     name: 'Rook',
-    start_position: "A1",
+    start_position: 0,
     captured: false,
     white: true
   }
@@ -112,7 +112,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Rook',
-    start_position: "H1",
+    start_position: 7,
     captured: false,
     white: true
   }
@@ -122,7 +122,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Rook',
-    start_position: "A8",
+    start_position: 56,
     captured: false,
     white: false
   }
@@ -130,7 +130,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Rook',
-    start_position: "H8",
+    start_position: 63,
     captured: false,
     white: false
   }
@@ -142,7 +142,7 @@ puts "Creating bishops"
 Piece.create!(
   {
     name: 'Bishop',
-    start_position: "C1",
+    start_position: 2,
     captured: false,
     white: true
   }
@@ -150,7 +150,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Bishop',
-    start_position: "F1",
+    start_position: 5,
     captured: false,
     white: true
   }
@@ -160,7 +160,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Bishop',
-    start_position: "C8",
+    start_position: 58,
     captured: false,
     white: false
   }
@@ -168,7 +168,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Bishop',
-    start_position: "F8",
+    start_position: 61,
     captured: false,
     white: false
   }
@@ -180,7 +180,7 @@ puts "Creating knights"
 Piece.create!(
   {
     name: 'Knight',
-    start_position: "D1",
+    start_position: 1,
     captured: false,
     white: true
   }
@@ -188,7 +188,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Knight',
-    start_position: "G1",
+    start_position: 6,
     captured: false,
     white: true
   }
@@ -198,7 +198,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Knight',
-    start_position: "D8",
+    start_position: 57,
     captured: false,
     white: false
   }
@@ -206,7 +206,7 @@ Piece.create!(
 Piece.create!(
   {
     name: 'Knight',
-    start_position: "G8",
+    start_position: 62,
     captured: false,
     white: false
   }
