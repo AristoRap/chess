@@ -1,10 +1,13 @@
 <div class="container d-flex flex-column align-items-center">
-  <h1 class="banner">
-    Ready to become a chess master?
-  </h1>
   <% if user_signed_in? %>
+    <h1 class="banner">
+      Welcome back, <%= current_user.email %>
+    </h1>
     <a class="button-primary" href="#" role="button">Play Now</a>
   <% else %>
+    <h1 class="banner">
+      Ready to become a chess master?
+    </h1>
     <%= link_to "Sign in", new_user_session_path, class: 'button-primary' %>
   <% end %>
 </div>

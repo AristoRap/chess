@@ -5,6 +5,7 @@
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
+import { navbarToggler } from "./navbar_toggler";
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
@@ -26,5 +27,5 @@ import "bootstrap";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  navbarToggler();
 });
