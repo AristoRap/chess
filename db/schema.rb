@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_27_230109) do
+ActiveRecord::Schema.define(version: 2022_02_27_230455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2022_02_27_230109) do
     t.index ["winner_id"], name: "index_games_on_winner_id"
   end
 
+  create_table "moves", force: :cascade do |t|
+    t.bigint "piece_id", null: false
+    t.bigint "player_id", null: false
+    t.bigint "game_id", null: false
+    t.integer "from_position"
+    t.integer "to_position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_moves_on_game_id"
+    t.index ["piece_id"], name: "index_moves_on_piece_id"
+    t.index ["player_id"], name: "index_moves_on_player_id"
+  end
+
   create_table "pieces", force: :cascade do |t|
     t.string "name"
     t.boolean "captured"
@@ -30,6 +43,15 @@ ActiveRecord::Schema.define(version: 2022_02_27_230109) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "white"
     t.integer "start_position"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_players_on_game_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +67,9 @@ ActiveRecord::Schema.define(version: 2022_02_27_230109) do
   end
 
   add_foreign_key "games", "users", column: "winner_id"
+  add_foreign_key "moves", "games"
+  add_foreign_key "moves", "pieces"
+  add_foreign_key "moves", "players"
+  add_foreign_key "players", "games"
+  add_foreign_key "players", "users"
 end
