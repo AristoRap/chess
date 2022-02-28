@@ -1,14 +1,36 @@
 .banner {
   margin-top: 4rem;
+  width: 100%;
   padding: 3rem 1rem;
   background-color: $c-accent;
   border-radius: 1.2rem;
-  font-size: 2.4rem;
-  font-weight: 400;
   text-align: center;
   box-shadow: -4px 8px 3px black;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 400;
+  }
+
+  &-knight {
+    position: absolute;
+    font-size: 13rem;
+    top: -.7rem;
+    right: 0;
+    z-index: -1;
+    color: rgba(255, 255, 255, 0.25);
+  }
 
   @media (min-width: 40rem) {
-    font-size: 6rem;
+    h1 {
+      font-size: 6rem;
+    }
+    &-knight {
+      font-size: 26rem;
+      right: -2rem;
+    }
   }
 }
