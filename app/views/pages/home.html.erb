@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container d-flex flex-column align-items-center">
+  <h1 class="banner">
+    Ready to become a chess master?
+  </h1>
+  <% if user_signed_in? %>
+    <a class="button-primary" href="#" role="button">Play Now</a>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: 'button-primary' %>
+  <% end %>
+</div>

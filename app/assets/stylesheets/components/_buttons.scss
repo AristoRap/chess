@@ -1,0 +1,22 @@
+.button-primary {
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 50%;
+  display: inline-block;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  background-color: $c-secondary-b;
+  color: white;
+  font-weight: 500;
+  transform: scale(1);
+  box-shadow: none;
+  transition: all 300ms;
+  &:hover {
+    transform: scale(1.03);
+    transition: all 300ms;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 0 6px white;
+  }
+}
