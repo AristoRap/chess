@@ -6,7 +6,8 @@
     </h1>
     <i class="fas fa-chess-knight banner-knight"></i>
   </div>
-    <a class="button-primary" href="#" role="button">Play Now</a>
+  <a class="button-primary" href="#" role="button" data-toggle="modal" data-target="#new-game-modal">Play Now</a>
+  <%= render 'shared/game_form' %>
   <% else %>
     <div class="banner">
       <h1>
