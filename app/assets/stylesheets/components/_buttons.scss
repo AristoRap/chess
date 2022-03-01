@@ -8,7 +8,7 @@
   text-align: center;
   background-color: $c-secondary-b;
   color: white;
-  font-weight: 400;
+  font-weight: 500;
   transform: scale(1);
   box-shadow: -5px 5px 1px white;
   transition: box-shadow 200ms;
@@ -16,8 +16,7 @@
   &:hover {
     text-decoration: none;
     color: white;
-    box-shadow: -16px 16px 1px white;
-    font-weight: 500;
-    transition: box-shadow 200ms;
+    box-shadow: -16px 16px 0 white;
+    transition: all 200ms;
   }
 }
