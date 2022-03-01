@@ -1,6 +1,10 @@
 .avatar {
   font-size: 2rem;
   color: $c-secondary-b;
+
+  @media (min-width: 40rem) {
+    padding-left: 0.5rem;
+  }
 }
 .avatar-large {
   width: 56px;
