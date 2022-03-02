@@ -15,4 +15,17 @@
       font-size: 3rem;
     }
   }
+
+  &-selected {
+    background-color: $c-secondary-b;
+  }
+}
+
+.piece-icon {
+  display: block;
+  height: 100%;
+  padding-top: 6px;
+  @media (min-width: 40rem) {
+    padding-top: 9px;
+  }
 }
