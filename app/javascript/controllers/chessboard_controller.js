@@ -8,20 +8,32 @@ export default class extends Controller {
   }
 
   click(e) {
-    const toBox = e.target.id ? e.target.childNodes[0] : e.target;
     // Reset selected styling
-    const pieces = document.querySelectorAll("i")
-    let fromPiece = document.querySelector('.piece-selected')
     pieces.forEach(piece => {
       piece.classList.remove("piece-selected")
     })
+    // Select all pieces and selected piece if a selection has been made
+    const pieces = document.querySelectorAll("i")
+    let fromPiece = document.querySelector('.piece-selected')
 
-    console.log(fromPiece);
+    // If there was a selection of a piece and the target box isn't a piece
     if ( fromPiece && fromPiece.className.includes('piece') && !e.target.className.includes("piece")) {
       e.target.innerHTML = fromPiece.outerHTML;
       fromPiece.parentNode.innerHTML = "";
-    } else if (e.target.className.includes('piece')){
+      // TO-DO
+      // AJAX call to create a move instance
+      // WebSocket to update for realtime updates
+
+    } else if (e.target.className.includes('piece')){ // If the selection was a piece
       e.target.classList.add("piece-selected");
+      // TO-DO
+      // Find available moves
+
+      // Update view to indicate available boxes to select and which can be clickable
+      // If move can capture opponent piece, indicate red hue
+      // If simple move, indicate green hue
+
+      //
     }
   }
 }
