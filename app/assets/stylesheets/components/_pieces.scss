@@ -1,0 +1,10 @@
+.piece {
+  font-size: 3rem;
+  text-shadow: 0px 0px 0.2rem white;
+
+  &-white {
+    font-size: 3rem;
+    text-shadow: 0px 0px 0.2rem black;
+    color: white;
+  }
+}

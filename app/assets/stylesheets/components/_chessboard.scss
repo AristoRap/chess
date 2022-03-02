@@ -1,4 +1,28 @@
 .chessboard {
+  margin-top: 3rem;
   display: grid;
-  background-color: white;
+  justify-content: center;
+  grid-template-columns: repeat(8,40px);
+  grid-template-rows: repeat(8, 40px);
+
+  @media (min-width: 40rem) {
+    grid-template-columns: repeat(8,70px);
+    grid-template-rows: repeat(8, 70px);
+  }
+
+  @media (min-width: 62rem) {
+    margin-left: 15rem;
+  }
+}
+
+.box {
+  border-radius: .4rem;
+}
+
+.box-black {
+  background-color: rgba(0, 0, 0, .5);
+}
+.box-white {
+  background-color: rgba(255, 255, 255, 0.9);
+
 }

@@ -7,3 +7,16 @@
 .fw-500 {
   font-weight: 500;
 }
+
+.flex-fluid {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 62rem) {
+    margin-top: 3rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
