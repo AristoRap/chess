@@ -8,14 +8,19 @@ export default class extends Controller {
   }
 
   click(e) {
-    const box = e.target.id ? e.target : e.target.parentNode;
+    const toBox = e.target.id ? e.target.childNodes[0] : e.target;
     // Reset selected styling
     const pieces = document.querySelectorAll("i")
+    let fromPiece = document.querySelector('.piece-selected')
     pieces.forEach(piece => {
       piece.classList.remove("piece-selected")
     })
 
-    if (box.className.includes("piece")) {
+    console.log(fromPiece);
+    if ( fromPiece && fromPiece.className.includes('piece') && !e.target.className.includes("piece")) {
+      e.target.innerHTML = fromPiece.outerHTML;
+      fromPiece.parentNode.innerHTML = "";
+    } else if (e.target.className.includes('piece')){
       e.target.classList.add("piece-selected");
     }
   }
