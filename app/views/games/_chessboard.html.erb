@@ -1,0 +1,49 @@
+<% @order.each_with_index do |type, i| %>
+  <div id=<%= i * 8 %> class="box box-<%= type %> text-center <%= @chessboard[i * 8].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 1 %>" class="box box-<%= @order[i - 1] %> text-center <%= @chessboard[i * 8 + 1].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 1].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 1].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 2 %>" class="box box-<%= type %> text-center <%= @chessboard[i * 8 + 2].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 2].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 2].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 3 %>" class="box box-<%= @order[i - 1] %> text-center <%= @chessboard[i * 8 + 3].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 3].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 3].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 4 %>"  class="box box-<%= type %> text-center <%= @chessboard[i * 8 + 4].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 4].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 4].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 5 %>" class="box box-<%= @order[i - 1] %> text-center <%= @chessboard[i * 8 + 5].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 5].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 5].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 6 %>" class="box box-<%= type %> text-center <%= @chessboard[i * 8 + 6].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 6].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 6].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+
+  <div id="<%= i * 8 + 7 %>"  class="box box-<%= @order[i - 1] %> text-center <%= @chessboard[i * 8 + 7].nil? ? '' : 'piece' %>">
+    <% unless @chessboard[i * 8 + 7].nil? %>
+      <i class="fas fa-chess-<%= @chessboard[i * 8 + 7].name.downcase %> piece-icon"></i>
+    <% end %>
+  </div>
+<% end %>

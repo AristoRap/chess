@@ -3,15 +3,8 @@
                            data-chessboard-target="chessboard"
                            data-action="click->chessboard#click">
 
-  <% if @game.moves.empty? %>
-    <div id="0" class="box box-white text-center piece">
-      <i class="fas fa-chess-rook piece-icon"></i>
-    </div>
-  <% else %>
-    <div id="0" class="box box-black text-center piece">
-      <i class="fas fa-chess-rook piece-icon"></i>
-    </div>
-  <% end %>
+    <%= render 'chessboard' %>
+  </div>
   <div class="stats">
     <div class="stats-item">
       <h5>Moves played</h5>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_170748) do
+ActiveRecord::Schema.define(version: 2022_03_01_203957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(version: 2022_03_02_170748) do
     t.bigint "game_id", null: false
     t.integer "from_position"
     t.integer "to_position"
+    t.bigint "captured_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "captured"
+    t.index ["captured_id"], name: "index_moves_on_captured_id"
     t.index ["game_id"], name: "index_moves_on_game_id"
     t.index ["piece_id"], name: "index_moves_on_piece_id"
     t.index ["player_id"], name: "index_moves_on_player_id"
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_170748) do
   add_foreign_key "games", "users", column: "winner_id"
   add_foreign_key "moves", "games"
   add_foreign_key "moves", "pieces"
+  add_foreign_key "moves", "pieces", column: "captured_id"
   add_foreign_key "moves", "players"
   add_foreign_key "players", "games"
   add_foreign_key "players", "users"

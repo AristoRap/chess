@@ -6,6 +6,7 @@ class CreateMoves < ActiveRecord::Migration[6.1]
       t.references :game, null: false, foreign_key: true
       t.integer :from_position
       t.integer :to_position
+      t.references :captured, index: true, foreign_key: { to_table: :pieces }
 
       t.timestamps
     end
