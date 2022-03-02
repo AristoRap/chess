@@ -3,18 +3,14 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = ["chessboard"];
 
-  connect() {
-    console.log("connected")
-  }
-
-  click(e) {
+   click(e) {
+    // Select all pieces and selected piece if a selection has been made
+    const pieces = document.querySelectorAll("i")
+    let fromPiece = document.querySelector('.piece-selected')
     // Reset selected styling
     pieces.forEach(piece => {
       piece.classList.remove("piece-selected")
     })
-    // Select all pieces and selected piece if a selection has been made
-    const pieces = document.querySelectorAll("i")
-    let fromPiece = document.querySelector('.piece-selected')
 
     // If there was a selection of a piece and the target box isn't a piece
     if ( fromPiece && fromPiece.className.includes('piece') && !e.target.className.includes("piece")) {
