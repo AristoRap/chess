@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_01_203957) do
+ActiveRecord::Schema.define(version: 2022_03_02_170748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_03_01_203957) do
     t.integer "to_position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "captured"
     t.index ["game_id"], name: "index_moves_on_game_id"
     t.index ["piece_id"], name: "index_moves_on_piece_id"
     t.index ["player_id"], name: "index_moves_on_player_id"
@@ -38,7 +39,6 @@ ActiveRecord::Schema.define(version: 2022_03_01_203957) do
 
   create_table "pieces", force: :cascade do |t|
     t.string "name"
-    t.boolean "captured"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "white"

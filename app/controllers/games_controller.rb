@@ -1,6 +1,8 @@
 class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
+    chessboard = {}
+    @game.moves.each { |move| chessboard[move.to_position] = move.piece.name.lowercase }
   end
 
   def create
