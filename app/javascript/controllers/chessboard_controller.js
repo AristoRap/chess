@@ -1,4 +1,5 @@
 import { Controller } from "stimulus";
+import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
   static targets = ["chessboard"];
@@ -14,8 +15,30 @@ export default class extends Controller {
 
     // If there was a selection of a piece and the target box isn't a piece
     if ( fromPiece && fromPiece.className.includes('piece') && !e.target.className.includes("piece")) {
+      const pieceId = fromPiece.dataset.pieceId;
+      const fromPosition = fromPiece.parentNode.id
+      const toPosition = e.target.id
+      const gameId = this.chessboardTarget.dataset.gameId
+
+      const move = {
+        piece_id: pieceId,
+        game_id: gameId,
+        from_position: fromPosition,
+        to_position: toPosition,
+        captured_id: null
+      }
+
+      fetch(`${gameId}/moves`, {
+        method: "POST",
+        headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
+        body: JSON.stringify(move)
+      })
+        .then(response => console.log(response))
+
+
       e.target.innerHTML = fromPiece.outerHTML;
       fromPiece.parentNode.innerHTML = "";
+
       // TO-DO
       // AJAX call to create a move instance
       // WebSocket to update for realtime updates

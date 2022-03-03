@@ -1,7 +1,8 @@
 <div class="container flex-fluid">
   <div  class="chessboard" data-controller="chessboard"
                            data-chessboard-target="chessboard"
-                           data-action="click->chessboard#click">
+                           data-action="click->chessboard#click"
+                           data-game-id=<%= @game.id %>>
 
     <%= render 'chessboard' %>
   </div>
