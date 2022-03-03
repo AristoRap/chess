@@ -1,83 +1,19 @@
-<% @order.each_with_index do |type, i| %>
-  <% if @chessboard[i * 8].nil? %>
-    <div id=<%= i * 8 %> class="box box-<%= type %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 %> class="box box-<%= type %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8].name.downcase %> <%= @chessboard[i * 8].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8].id %>>
+<% 64.times do |j| %>
+  <% if (j < 8 || (j >= 16 && j < 24) || (j >= 32 && j < 40) || (j >= 48 && j < 56)) %>
+    <div id=<%= j %> class="box box-<%= @order[(j % 2).zero? ? 0 : 1] %> text-center">
+      <% unless @chessboard[j].nil? %>
+        <i class="fas fa-chess-<%= @chessboard[j].name.downcase %> <%= @chessboard[j].white ? 'piece-white' : 'piece' %> piece-icon"
+          data-piece-id= <%= @chessboard[j].id %>>
         </i>
-    </div>
-  <% end %>
-
-  <% if @chessboard[i * 8 + 1].nil? %>
-    <div id=<%= i * 8 + 1 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
+      <% end %>
     </div>
   <% else %>
-    <div id=<%= i * 8 + 1 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 1].name.downcase %> <%= @chessboard[i * 8 + 1].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 1].id %>></i>
+    <div id=<%= j %> class="box box-<%= @order[(j % 2).zero? ? 1 : 0] %> text-center">
+      <% unless @chessboard[j].nil? %>
+        <i class="fas fa-chess-<%= @chessboard[j].name.downcase %> <%= @chessboard[j].white ? 'piece-white' : 'piece' %> piece-icon"
+          data-piece-id= <%= @chessboard[j].id %>>
+        </i>
+      <% end %>
     </div>
   <% end %>
-
-  <% if @chessboard[i * 8 + 2].nil? %>
-    <div id=<%= i * 8 %> class="box box-<%= type %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 + 2 %> class="box box-<%= type %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 2].name.downcase %> <%= @chessboard[i * 8 + 2].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 2].id %>></i>
-    </div>
-  <% end %>
-
-  <% if @chessboard[i * 8 + 3].nil? %>
-    <div id=<%= i * 8 + 3 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 + 3 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 3].name.downcase %> <%= @chessboard[i * 8 + 3].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 3].id %>></i>
-    </div>
-  <% end %>
-
-  <% if @chessboard[i * 8 + 4].nil? %>
-    <div id=<%= i * 8 + 4 %> class="box box-<%= type %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 + 4 %> class="box box-<%= type %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 4].name.downcase %> <%= @chessboard[i * 8 + 4].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 4].id %>></i>
-    </div>
-  <% end %>
-
-  <% if @chessboard[i * 8 + 5].nil? %>
-    <div id=<%= i * 8 + 5 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 + 5 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 5].name.downcase %> <%= @chessboard[i * 8 + 5].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 5].id %>></i>
-    </div>
-  <% end %>
-
-  <% if @chessboard[i * 8 + 6].nil? %>
-    <div id=<%= i * 8 %> class="box box-<%= type %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 + 6 %> class="box box-<%= type %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 6].name.downcase %> <%= @chessboard[i * 8 + 6].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 6].id %>></i>
-    </div>
-  <% end %>
-
-  <% if @chessboard[i * 8 + 7].nil? %>
-    <div id=<%= i * 8 + 7 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-    </div>
-  <% else %>
-    <div id=<%= i * 8 + 7 %> class="box<%= %> box-<%= @order[i - 1] %> text-center">
-        <i class="fas fa-chess-<%= @chessboard[i * 8 + 7].name.downcase %> <%= @chessboard[i * 8 + 7].white ? 'piece-white' : 'piece' %> piece-icon"
-           data-piece-id= <%= @chessboard[i * 8 + 7].id %>></i>
-    </div>
-  <% end %>
-
 <% end %>

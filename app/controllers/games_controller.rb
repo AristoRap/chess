@@ -1,9 +1,9 @@
 class GamesController < ApplicationController
   def show
-    @order = %w[white black white black white black white black]
+    @order = %w[white black]
     @game = Game.find(params[:id])
     @chessboard = chessboard_default
-    @game.moves.where(captured_id: nil).each { |move| @chessboard[move.to_position] = move.piece}
+    @game.moves.where(captured_id: nil).each { |move| @chessboard[move.to_position] = move.piece }
 
     # raise
   end
