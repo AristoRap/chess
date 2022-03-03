@@ -8,16 +8,16 @@
   </div>
   <div class="stats">
     <div class="stats-item">
-      <h5>Moves played</h5>
-      <p>12</p>
+      <h5>Moves made</h5>
+      <p><%= @game.moves.size %></p>
     </div>
     <div class="stats-item">
       <h5>Time elapsed</h5>
-      <p>01:13</p>
-    </div>
-    <div class="stats-item">
-      <h5>Time remaining</h5>
-      <p>08:47</p>
+      <% if @game.moves.empty? %>
+        <p>Waiting for <span class="fw-500"><%= @game.player_white.nickname %></span> to make the first move </p>
+      <% else %>
+        <p><%= ((DateTime.now.utc - @game.created_at) / (60*60)).round(1) %> hours </p>
+      <% end %>
     </div>
   </div>
 </div>

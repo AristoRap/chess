@@ -1,17 +1,17 @@
-<% 64.times do |j| %>
-  <% if (j < 8 || (j >= 16 && j < 24) || (j >= 32 && j < 40) || (j >= 48 && j < 56)) %>
-    <div id=<%= j %> class="box box-<%= @order[(j % 2).zero? ? 0 : 1] %> text-center">
-      <% unless @chessboard[j].nil? %>
-        <i class="fas fa-chess-<%= @chessboard[j].name.downcase %> <%= @chessboard[j].white ? 'piece-white' : 'piece' %> piece-icon"
-          data-piece-id= <%= @chessboard[j].id %>>
+<% @iteration.each do |i| %>
+  <% if (i < 8 || (i >= 16 && i < 24) || (i >= 32 && i < 40) || (i >= 48 && i < 56)) %>
+    <div id=<%= i %> class="box box-<%= @order[(i % 2).zero? ? 0 : 1] %> text-center">
+      <% unless @chessboard[i].nil? %>
+        <i class="fas fa-chess-<%= @chessboard[i].name.downcase %> <%= @chessboard[i].white ? 'piece-white' : 'piece' %> piece-icon"
+          data-piece-id= <%= @chessboard[i].id %>>
         </i>
       <% end %>
     </div>
   <% else %>
-    <div id=<%= j %> class="box box-<%= @order[(j % 2).zero? ? 1 : 0] %> text-center">
-      <% unless @chessboard[j].nil? %>
-        <i class="fas fa-chess-<%= @chessboard[j].name.downcase %> <%= @chessboard[j].white ? 'piece-white' : 'piece' %> piece-icon"
-          data-piece-id= <%= @chessboard[j].id %>>
+    <div id=<%= i %> class="box box-<%= @order[(i % 2).zero? ? 1 : 0] %> text-center">
+      <% unless @chessboard[i].nil? %>
+        <i class="fas fa-chess-<%= @chessboard[i].name.downcase %> <%= @chessboard[i].white ? 'piece-white' : 'piece' %> piece-icon"
+          data-piece-id= <%= @chessboard[i].id %>>
         </i>
       <% end %>
     </div>
