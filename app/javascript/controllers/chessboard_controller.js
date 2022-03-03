@@ -34,7 +34,7 @@ export default class extends Controller {
       fetch(`${gameId}/moves`, {
         method: "POST",
         headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
-        body: JSON.stringify(move)
+        body: JSON.stringify({move: move})
       })
         .then(response => console.log(response))
 

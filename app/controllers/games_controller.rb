@@ -5,7 +5,6 @@ class GamesController < ApplicationController
     @chessboard = chessboard_default
     @game.moves.where(captured_id: nil).each { |move| @chessboard[move.to_position] = move.piece }
     @iteration = @game.player_white == current_user ? (0..63).to_a.reverse : (0..63).to_a
-    # raise
   end
 
   def create
