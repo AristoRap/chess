@@ -28,6 +28,9 @@ export default class extends Controller {
         captured_id: null
       }
 
+      e.target.innerHTML = fromPiece.outerHTML;
+      fromPiece.parentNode.innerHTML = "";
+
       fetch(`${gameId}/moves`, {
         method: "POST",
         headers: { Accept: "application/json", "X-CSRF-Token": csrfToken() },
@@ -36,8 +39,6 @@ export default class extends Controller {
         .then(response => console.log(response))
 
 
-      e.target.innerHTML = fromPiece.outerHTML;
-      fromPiece.parentNode.innerHTML = "";
 
       // TO-DO
       // AJAX call to create a move instance
