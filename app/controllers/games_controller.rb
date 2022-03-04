@@ -8,12 +8,12 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new({ state: 'created', winner_id: nil })
+    @game = Game.new({ state: 'created', winner_id: nil, player_white: current_user })
     @player = Player.new({ user: current_user, game: @game })
-    if @game.save && @player.save
+    if @player.save
       redirect_to @game, notice: "Let's roll!"
     else
-      render root_path, alert: "Oops, something went wrong"
+      redirect_to root_path, alert: "Oops, something went wrong"
     end
   end
 
