@@ -1,9 +1,13 @@
 class MovesController < ApplicationController
   def create
-    raise
     @move = Move.new(move_params)
+    @move.player = Player.find_by(user: current_user, game_id: params[:game_id])
     respond_to do |format|
-      format.json { render json: @move }
+      if @move.save
+        format.json { render json: @move }
+      else
+        format.json { render json: @move.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -3,7 +3,10 @@ class GamesController < ApplicationController
     @order = %w[white black]
     @game = Game.find(params[:id])
     @chessboard = chessboard_default
-    @game.moves.where(captured_id: nil).each { |move| @chessboard[move.to_position] = move.piece }
+    @game.moves.where(captured_id: nil).each do |move|
+      @chessboard[move.to_position] = move.piece
+      @chessboard[move.from_position] = nil
+    end
     @iteration = @game.player_white == current_user ? (0..63).to_a.reverse : (0..63).to_a
   end
 
