@@ -3,7 +3,7 @@ class GamesController < ApplicationController
     @order = %w[white black]
     @game = Game.find(params[:id])
     @chessboard = chessboard_default
-    @game.moves.where(captured_id: nil).each do |move|
+    Move.includes(:game).includes(:piece).where(game: @game, captured_id: nil).each do |move|
       @chessboard[move.to_position] = move.piece
       @chessboard[move.from_position] = nil
     end
