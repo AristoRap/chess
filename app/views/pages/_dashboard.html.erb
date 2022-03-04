@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row mb-2" >
+    <div class="col-sm-12 col-md-8 mt-4" id='games-list'>
+      <h2>Started games</h2>
+        <ul class="list-inline d-flex justify-content-between">
+          <% @games.each do |game| %>
+            <li class="game">
+              <span>Game: <%= game.id %></span>
+              <div>
+                <%= link_to 'Continue', game_path(game), class: 'fs-sm c-accent-b' %>
+                <%= link_to game_path(game), method: :delete, remote: true, class: 'fs-sm' do %>
+                  <i class="fas fa-trash ml-1 text-danger"></i>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <%= simple_form_for @game, html: {class: 'w-100 text-center'} do |f|%>
+        <%= f.button :button, 'Play now', class: 'button-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,17 @@
   font-weight: 500;
 }
 
+.fs-sm {
+  font-size: 12px;
+}
+
+.c-accent-b {
+  color: $c-accent-b;
+  &:hover {
+    color: $c-accent-b;
+  }
+}
+
 .flex-fluid {
   display: flex;
   justify-content: center;

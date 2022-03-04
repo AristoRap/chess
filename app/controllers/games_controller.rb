@@ -17,6 +17,17 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    @game = Game.find(params[:id])
+    player = Player.find_by(user: current_user, game: @game)
+    player.destroy
+    if @game.destroy
+      redirect_to root_path, notice: "Game deleted."
+    else
+      redirect_to root_path, alert: "We got checkmate'd...something went wrong."
+    end
+  end
+
   private
 
   def chessboard_default
